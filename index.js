@@ -45,4 +45,4 @@ bot.on("message", async message => {
 })
 
 
-bot.login("NzUzNzg5NDc2Mjc4MzcwMzA0.X1rTJw._cHPweOrdGOEwHYS2GIyRqgcaP8")
+bot.login(process.env.TOKEN)
