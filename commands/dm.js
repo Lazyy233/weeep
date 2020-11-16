@@ -17,7 +17,7 @@ if (!message.member.permissions.has("MANAGE_MESSAGES"))
     user.user
       .send(args.slice(1).join(" "))
       .catch(() => message.channel.send("That user could not be DMed!"))
-      .then(() => message.channel.send(`Sent a message to ${user.user.tag}`))
+      .then(() => message.channel.send(`Sent a message to ${user.user.tag}`));
 
   module.exports.help = {
   name: "dm"
