@@ -18,6 +18,10 @@ jsfile.forEach((f, i) =>{
   let props = require(`./commands/${f}`);
   console.log(`${f} loaded!`);
   bot.commands.set(props.help.name, props);
+
+//The way I have done it, is by checking if the message content starts with the prefix. Below I've pasted some code which I use for my bot. The main line is
+
+if (message.content.indexOf(config.prefix) !== 0) return
 });
 
 });
