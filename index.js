@@ -29,6 +29,8 @@ bot.on("ready", () => {
 });
 
 bot.on("message", async message => {
+
+  if(!message.content.startsWith(prefix)) return;
   //a little bit of data parsing/general checks
   if(message.author.bot) return;
   if(message.channel.type === 'dm') return;
