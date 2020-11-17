@@ -29,7 +29,7 @@ bot.on("ready", () => {
 });
 
 bot.on("message", async message => {
-
+  let prefix = config.prefix
   if(!message.content.startsWith(prefix)) return;
   //a little bit of data parsing/general checks
   if(message.author.bot) return;
@@ -37,7 +37,6 @@ bot.on("message", async message => {
   let content = message.content.split(" ");
   let command = content[0];
   let args = content.slice(1);
-  let prefix = config.prefix;
 
 
   //checks if message contains a command and runs it
