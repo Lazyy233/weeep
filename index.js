@@ -29,7 +29,7 @@ bot.on("ready", () => {
 });
 
 bot.on("message", async message => {
-  let prefix = config.prefix
+  let prefix = "."
   if(!message.content.startsWith(prefix)) return;
   //a little bit of data parsing/general checks
   if(message.author.bot) return;
