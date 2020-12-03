@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-getMember: function(message, toFind = '') {
+const getMember = function(message, toFind = '') {
         toFind = toFind.toLowerCase();
 
         let target = message.guild.members.get(toFind);
