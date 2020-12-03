@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 module.exports.run = async (bot, message, args) => {
 message.delete() 
  
- if (!message.member.permissions.has("MANAGE_MESSAGES"))
+  if (!message.member.permissions.has("MANAGE_MESSAGES"))
       return message.channel.send(`No.`);
     let User = message.mentions.users.first() || null;
 
@@ -42,10 +42,11 @@ message.delete()
             value: `${new Intl.DateTimeFormat("en-US").format(Date.now())}`,
             inline: true,
           }
-           message.channel.send(Embed);
-           }
-           }
-
+        );
+      Channel.send(Embed);
+    }
+  },
+};
 module.exports.help = {
   name: "report"
 }
