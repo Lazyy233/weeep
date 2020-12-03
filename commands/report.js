@@ -45,8 +45,7 @@ message.delete()
         );
       Channel.send(Embed);
     }
-  },
-};
+  }
 module.exports.help = {
   name: "report"
 }
