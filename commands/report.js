@@ -1,42 +1,26 @@
 const Discord = require('discord.js')
-const { RichEmbed } = require("discord.js");
-const { stripIndents } = require("common-tags");
+
 
 
 module.exports.run = async (bot, message, args) => { 
  
-  run: async (client, message, args) => {
-        if (message.deletable) message.delete();
+ let person = getMember(message, args[0]);
 
-        let rMember = message.mentions.members.first() || message.guild.members.get(args[0]);
+        if (!person || message.author.id === person.id) {
+            person = message.guild.members
+                .filter(m => m.id !== message.author.id)
+                .random();
+        }
 
-        if (!rMember)
-            return message.reply("Couldn't find that person?").then(m => m.delete(5000));
-
-        if (rMember.hasPermission("BAN_MEMBERS") || rMember.user.bot)
-            return message.channel.send("Can't report that member").then(m => m.delete(5000));
-
-        if (!args[1])
-            return message.channel.send("Please provide a reason for the report").then(m => m.delete(5000));
-        
-        const channel = message.guild.channels.find(c => c.name === "reports")
-            
-        if (!channel)
-            return message.channel.send("Couldn't find a `#reports` channel").then(m => m.delete(5000));
+        const love = Math.random() * 100;
+        const loveIndex = Math.floor(love / 10);
+        const loveLevel = "💖".repeat(loveIndex) + "💔".repeat(10 - loveIndex);
 
         const embed = new RichEmbed()
-            .setColor("#ff0000")
-            .setTimestamp()
-            .setFooter(message.guild.name, message.guild.iconURL)
-            .setAuthor("Reported member", rMember.user.displayAvatarURL)
-            .setDescription(stripIndents`**> Member:** ${rMember} (${rMember.user.id})
-            **> Reported by:** ${message.member}
-            **> Reported in:** ${message.channel}
-            **> Reason:** ${args.slice(1).join(" ")}`);
-
-        return channel.send(embed);
-   
-  }
+            .setColor("#ffb6c1")
+            .addField(`☁ **${person.displayName}** loves **${message.member.displayName}** this much:`,
+            `💟 ${Math.floor(love)}%\n\n${loveLevel}`);
+ 
     }
 module.exports.help = {
   name: "report"
