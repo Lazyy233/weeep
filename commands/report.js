@@ -33,6 +33,8 @@ message.delete()
             **> Reason:** ${args.slice(1).join(" ")}`);
 
         return channel.send(embed);
+   
+  }
     }
 module.exports.help = {
   name: "report"
